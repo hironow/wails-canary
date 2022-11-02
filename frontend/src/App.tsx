@@ -7,27 +7,36 @@ import {
 } from "../wailsjs/go/main/App";
 
 function App() {
+  // state
   const [randomImageUrl, setRandomImageUrl] = useState("");
   const [breeds, setBreeds] = useState<string[]>([]);
   const [photos, setPhotos] = useState<string[]>([]);
 
+  // select
   const [selectedBreed, setSelectedBreed] = useState<string>("");
   const updateSelectedBreed = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedBreed(event.target.value);
   };
 
-  const [showRandomPhoto, setShowRandomPhoto] = useState(false);
-  const [showBreedPhotos, setShowBreedPhotos] = useState(false);
+  // flags
+  const [showFlags, setShowFlags] = useState<{
+    randomPhoto: boolean;
+    breedPhoto: boolean;
+  }>({
+    randomPhoto: false,
+    breedPhoto: false,
+  });
 
+  // init
   useEffect(() => {
     getBreedList();
   }, []);
 
+  // call
   function getRandomImageUrl() {
-    setShowRandomPhoto(false);
-    setShowBreedPhotos(false);
+    setShowFlags({ randomPhoto: false, breedPhoto: false });
     GetRandomImageUrl().then((result) => setRandomImageUrl(result));
-    setShowRandomPhoto(true);
+    setShowFlags({ randomPhoto: true, breedPhoto: false });
   }
 
   function getBreedList() {
@@ -35,16 +44,15 @@ function App() {
   }
 
   function getImageUrlsByBreed() {
-    setShowRandomPhoto(false);
-    setShowBreedPhotos(false);
+    setShowFlags({ randomPhoto: false, breedPhoto: false });
     GetImageUrlsByBreed(selectedBreed).then((result) => setPhotos(result));
-    setShowBreedPhotos(true);
+    setShowFlags({ randomPhoto: false, breedPhoto: true });
   }
 
   return (
     <div id="App">
-      <div>
-        <button className="btn" onClick={getRandomImageUrl}>
+      <div id="input" className="input-box">
+        <button type="button" className="btn" onClick={getRandomImageUrl}>
           Fetch a dog randomly
         </button>
         <p>Click on down arrow to select a breed</p>
@@ -59,16 +67,16 @@ function App() {
             </option>
           ))}
         </select>
-        <button className="btn" onClick={getImageUrlsByBreed}>
+        <button type="button" className="btn" onClick={getImageUrlsByBreed}>
           Fetch by this breed
         </button>
       </div>
 
-      {showRandomPhoto && (
+      {showFlags.randomPhoto && (
         <img id="random-photo" src={randomImageUrl} alt="No dog found" />
       )}
 
-      {showBreedPhotos &&
+      {showFlags.breedPhoto &&
         photos?.map((photo, i) => (
           <img key={i} id="breed-photos" src={photo} alt="No dog found" />
         ))}
