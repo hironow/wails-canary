@@ -1,4 +1,4 @@
-import { useEffect, useState, ChangeEvent } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import './App.css'
 import { GetBreedList, GetImageUrlsByBreed, GetRandomImageUrl } from '../wailsjs/go/main/App'
 
