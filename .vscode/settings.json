@@ -4,6 +4,7 @@
         "Colour",
         "customised",
         "redistributable",
-        "wailsapp"
+        "wailsapp",
+        "wailsjs"
     ]
 }
