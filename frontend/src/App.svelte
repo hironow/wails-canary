@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { GetRandomImageUrl } from "../wailsjs/go/main/App.js";
-  import { GetBreedList } from "../wailsjs/go/main/App.js";
-  import { GetImageUrlsByBreed } from "../wailsjs/go/main/App.js";
+  import {GetBreedList, GetImageUrlsByBreed, GetRandomImageUrl} from "../wailsjs/go/main/App.js";
 
   let randomImageUrl = "";
   let breeds = [];
@@ -54,13 +52,13 @@
       Fetch by this breed
     </button>
   </div>
-  <br />
+  <br/>
   {#if showRandomPhoto}
-    <img id="random-photo" src={randomImageUrl} alt="No dog found" />
+    <img id="random-photo" src={randomImageUrl} alt="No dog found"/>
   {/if}
   {#if showBreedPhotos}
     {#each photos as photo}
-      <img id="breed-photos" src={photo} alt="No dog found" />
+      <img id="breed-photos" src={photo} alt="No dog found"/>
     {/each}
   {/if}
 </main>
