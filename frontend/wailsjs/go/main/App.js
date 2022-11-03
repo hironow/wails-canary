@@ -13,3 +13,15 @@ export function GetImageUrlsByBreed(arg1) {
 export function GetRandomImageUrl() {
   return window['go']['main']['App']['GetRandomImageUrl']();
 }
+
+export function Search(arg1, arg2, arg3) {
+  return window['go']['main']['App']['Search'](arg1, arg2, arg3);
+}
+
+export function SelectFile() {
+  return window['go']['main']['App']['SelectFile']();
+}
+
+export function SelectFolder() {
+  return window['go']['main']['App']['SelectFolder']();
+}
