@@ -1,4 +1,12 @@
 {
+  "files.exclude": {
+    "**/.idea": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/wailsjs": true
+  },
+  "editor.formatOnSave": true,
   "cSpell.words": [
     "appicon",
     "camelcase",
