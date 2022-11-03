@@ -1,11 +1,14 @@
 {
-    "cSpell.words": [
-        "appicon",
-        "camelcase",
-        "Colour",
-        "customised",
-        "redistributable",
-        "wailsapp",
-        "wailsjs"
-    ]
+  "cSpell.words": [
+    "appicon",
+    "camelcase",
+    "Colour",
+    "customised",
+    "mdsvex",
+    "outputfilename",
+    "redistributable",
+    "sveltejs",
+    "wailsapp",
+    "wailsjs"
+  ]
 }
